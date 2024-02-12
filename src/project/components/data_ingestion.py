@@ -3,7 +3,7 @@ import zipfile
 from src.project.logger import logging
 from src.project.exception import CustomException
 
-from src.project.config.configmanager import DataIngestionManager
+from src.project.config.configmanager import ConfigManager
 
 import sys
 import gdown
@@ -11,7 +11,7 @@ import gdown
 
 
 class DataIngestion:
-    def __init__(self,config:DataIngestionManager):
+    def __init__(self,config:ConfigManager):
         self.config = config
         
     def download_file(self) -> str:
