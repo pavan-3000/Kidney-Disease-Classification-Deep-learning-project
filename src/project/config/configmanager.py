@@ -2,8 +2,8 @@ from src.project.constants import *
 from src.project.utils.common import read_yaml,create_directory
 
 from src.project.entity.entity_config import DataIngestionConfig
-from src.project.entity.entity_config import PrepareBaseModelConfig
-
+from src.project.entity.entity_config import PreparedBasedModelConfig
+import os
 
 from src.project.logger import logging
 from src.project.exception import CustomException
@@ -47,27 +47,31 @@ class ConfigManager:
         raise CustomException(e,sys)
     
     
-    def get_prepare_basemodel(self) -> PrepareBaseModelConfig:
+        
+    def BaseModelManager(self) -> PreparedBasedModelConfig:
         try:
             config = self.config.prepare_base_model
+            params = self.params
             
             create_directory([config.root_dir])
-            logging.info('created root_dir')
             
-            
-            prepare_base_model_config = PrepareBaseModelConfig(
-                root_dir= Path(config.root_dir),
-                base_model_path= Path(config.base_model_path),
-                updated_base_model_path= Path(config.updated_base_model_path),
-                params_image_size= self.params.IMAGE_SIZE,
-                params_classes=self.params.CLASSES,
-                params_weights=self.params.WEIGHTS,
-                params_learning_rate=self.params.LEARNING_RATE,
-                params_include_top=self.params.INCLUDE_TOP
+            get_base_model = PreparedBasedModelConfig(
+                root_dir=config.root_dir,
+                base_model_path=config.base_model_path,
+                updated_base_model_path=config.updated_base_model_path,
+                params_classess=params.CLASSESS,
+                params_image_size=params.IMAGE_SIZE,
+                params_include_top=params.INCLUDE_TOP,
+                params_learning_rate=params.LEARNING_RATE,
+                params_weights=params.WEIGHTS
             )
             
-            return prepare_base_model_config
+            return get_base_model
+            
             
             
         except Exception as e:
             raise CustomException(e,sys)
+        
+        
+  

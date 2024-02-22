@@ -1,9 +1,10 @@
-from src.project.pipeline.ingestion_pipeline import DataIngestionPipeline
+
+#from src.project.pipeline.ingestion_pipeline import DataIngestionPipeline
 from src.project.logger import logging 
 from src.project.exception import CustomException
 import sys
 
-from src.project.pipeline.preprared_base_model_pipeline import prepare_base_model_pipeline
+from src.project.pipeline.preprared_base_model_pipeline import BasePipeline
 '''
 try:
     logging.info("datas ingestonston stared")
@@ -20,7 +21,8 @@ except Exception as e:
 try:
     
     logging.info("staring pareaed base model")
-    base_obj = prepare_base_model_pipeline()
+    base_obj = BasePipeline()
     base_obj.main()
+    logging.info("base modle is completed")
 except Exception as e:
     raise CustomException(e,sys)

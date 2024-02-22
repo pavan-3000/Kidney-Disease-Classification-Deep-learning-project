@@ -15,14 +15,12 @@ class DataIngestionConfig:
     unzip_dir: Path
     
 @dataclass
-class PrepareBaseModelConfig:
+class PreparedBasedModelConfig:
     root_dir: Path
     base_model_path: Path
     updated_base_model_path: Path
     params_image_size: list
-    params_learning_rate: float
+    params_learning_rate: int 
     params_include_top: bool
-    params_weights: str
-    params_classes: int
-
-
+    params_weights: str 
+    params_classess: int
