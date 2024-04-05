@@ -34,6 +34,6 @@ class TrainingConfig:
     training_data: Path
     params_epochs: int 
     params_batch_size: float
-    params_is_arugmentation: bool
+    params_is_augmentation: bool
     params_image_size: list
     

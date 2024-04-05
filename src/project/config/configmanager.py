@@ -78,7 +78,7 @@ class ConfigManager:
             logging.info("trainig config starred")
             
             config = self.config.training
-            base = self.config.prepared_base_model
+            base = self.config.prepare_base_model
             
             training_data = os.path.join(self.config.data_ingestion.unzip_dir,'kidney-ct-scan-image')
             
@@ -92,7 +92,7 @@ class ConfigManager:
                 params_batch_size= self.params.BATCH_SIZE,
                 params_epochs=self.params.EPOCHS,
                 params_image_size=self.params.IMAGE_SIZE,
-                params_is_arugmentation=self.params.AUGMENTATION,
+                params_is_augmentation=self.params.AUGMENTATION
                 
             )
             
