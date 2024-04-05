@@ -2,7 +2,7 @@ from src.project.constants import *
 from src.project.utils.common import read_yaml,create_directory
 
 from src.project.entity.entity_config import DataIngestionConfig
-from src.project.entity.entity_config import PreparedBasedModelConfig
+from src.project.entity.entity_config import PreparedBasedModelConfig,TrainingConfig
 import os
 
 from src.project.logger import logging
@@ -73,5 +73,31 @@ class ConfigManager:
         except Exception as e:
             raise CustomException(e,sys)
         
+    def trainingManager(self)-> TrainingConfig:
+        try:
+            logging.info("trainig config starred")
+            
+            config = self.config.training
+            base = self.config.prepared_base_model
+            
+            training_data = os.path.join(self.config.data_ingestion.unzip_dir,'kidney-ct-scan-image')
+            
+            create_directory([config.root_dir])
+            
+            training_config = TrainingConfig(
+                root_dir=config.root_dir,
+                trained_model_path=config.trained_model_path,
+                training_data=training_data,
+                updated_base_model_path=base.updated_base_model_path,
+                params_batch_size= self.params.BATCH_SIZE,
+                params_epochs=self.params.EPOCHS,
+                params_image_size=self.params.IMAGE_SIZE,
+                params_is_arugmentation=self.params.AUGMENTATION,
+                
+            )
+            
+            return training_config
+        except Exception as e:
+            raise CustomException(e,sys)
         
   

@@ -5,6 +5,7 @@ from src.project.exception import CustomException
 import sys
 
 from src.project.pipeline.preprared_base_model_pipeline import BasePipeline
+from src.project.pipeline.trainpipeline import TrainingPipeline
 '''
 try:
     logging.info("datas ingestonston stared")
@@ -14,7 +15,7 @@ try:
         
 except Exception as e:
     raise CustomException(e,sys)
-'''
+
 
 
 
@@ -24,5 +25,13 @@ try:
     base_obj = BasePipeline()
     base_obj.main()
     logging.info("base modle is completed")
+except Exception as e:
+    raise CustomException(e,sys)
+
+'''
+
+try:
+    train_obj = TrainingPipeline()
+    train_obj.start()
 except Exception as e:
     raise CustomException(e,sys)
