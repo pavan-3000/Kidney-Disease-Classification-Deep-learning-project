@@ -1,0 +1,15 @@
+artifact_uri: file:///home/snow/Pictures/Kidney-Disease-Classification-Deep-learning-project/mlruns/0/65e2948e63d5471eb244f9840a1d06ee/artifacts
+end_time: 1712485277091
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 65e2948e63d5471eb244f9840a1d06ee
+run_name: monumental-perch-776
+run_uuid: 65e2948e63d5471eb244f9840a1d06ee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712485276301
+status: 3
+tags: []
+user_id: snow

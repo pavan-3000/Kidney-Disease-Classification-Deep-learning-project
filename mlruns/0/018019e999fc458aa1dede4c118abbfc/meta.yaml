@@ -1,0 +1,15 @@
+artifact_uri: file:///home/snow/Pictures/Kidney-Disease-Classification-Deep-learning-project/mlruns/0/018019e999fc458aa1dede4c118abbfc/artifacts
+end_time: 1712489843312
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: 018019e999fc458aa1dede4c118abbfc
+run_name: smiling-carp-896
+run_uuid: 018019e999fc458aa1dede4c118abbfc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1712489774196
+status: 3
+tags: []
+user_id: snow

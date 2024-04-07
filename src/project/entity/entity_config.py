@@ -36,4 +36,13 @@ class TrainingConfig:
     params_batch_size: float
     params_is_augmentation: bool
     params_image_size: list
-    
+
+
+@dataclass
+class EvaluteConfig:
+    model_path: Path
+    training_data: Path
+    mlflow_uri: str
+    all_params: dict
+    params_image_size: list
+    params_batch_size: int

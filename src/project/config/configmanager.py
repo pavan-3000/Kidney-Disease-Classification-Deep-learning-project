@@ -2,7 +2,7 @@ from src.project.constants import *
 from src.project.utils.common import read_yaml,create_directory
 
 from src.project.entity.entity_config import DataIngestionConfig
-from src.project.entity.entity_config import PreparedBasedModelConfig,TrainingConfig
+from src.project.entity.entity_config import PreparedBasedModelConfig,TrainingConfig,EvaluteConfig
 import os
 
 from src.project.logger import logging
@@ -79,7 +79,6 @@ class ConfigManager:
             
             config = self.config.training
             base = self.config.prepare_base_model
-            
             training_data = os.path.join(self.config.data_ingestion.unzip_dir,'kidney-ct-scan-image')
             
             create_directory([config.root_dir])
@@ -97,6 +96,21 @@ class ConfigManager:
             )
             
             return training_config
+        except Exception as e:
+            raise CustomException(e,sys)
+        
+    def EvaluteManager(self)-> EvaluteConfig:
+        try:
+            eval_config = EvaluteConfig(
+                model_path = "artifacts/training/model.h5",
+                training_data = "artifacts/data_ingestion/kidney-ct-scan-image",
+                mlflow_uri="https://dagshub.com/pavan-3000/Kidney-Disease-Classification-Deep-learning-project.mlflow",
+                all_params=self.params,
+                params_batch_size=self.params.BATCH_SIZE,
+                params_image_size=self.params.IMAGE_SIZE
+            )
+            
+            return eval_config
         except Exception as e:
             raise CustomException(e,sys)
         

@@ -6,6 +6,7 @@ import sys
 
 from src.project.pipeline.preprared_base_model_pipeline import BasePipeline
 from src.project.pipeline.trainpipeline import TrainingPipeline
+from src.project.pipeline.evalute_pipeline import EvaluePipeline
 '''
 try:
     logging.info("datas ingestonston stared")
@@ -28,10 +29,19 @@ try:
 except Exception as e:
     raise CustomException(e,sys)
 
-'''
 
 try:
     train_obj = TrainingPipeline()
     train_obj.start()
+except Exception as e:
+    raise CustomException(e,sys)
+
+
+
+'''
+
+try:
+    eval_obj  = EvaluePipeline()
+    eval_obj.run()
 except Exception as e:
     raise CustomException(e,sys)
