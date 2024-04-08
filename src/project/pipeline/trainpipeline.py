@@ -17,3 +17,10 @@ class TrainingPipeline:
         train.get_base_model()
         train.train_valid_generator()
         train.train()
+    
+if __name__ == '__main__':
+    try:
+        train_obj = TrainingPipeline()
+        train_obj.start()
+    except Exception as e:
+        raise CustomException(e,sys)

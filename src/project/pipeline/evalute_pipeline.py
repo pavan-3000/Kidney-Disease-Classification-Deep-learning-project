@@ -17,3 +17,11 @@ class EvaluePipeline:
         evalute.Evalute()
         evalute.save_score()
         evalute.log_into_mlflow()
+
+if __name__ == '__main__':
+    
+    try:
+        eval_obj  = EvaluePipeline()
+        eval_obj.run()
+    except Exception as e:
+        raise CustomException(e,sys)

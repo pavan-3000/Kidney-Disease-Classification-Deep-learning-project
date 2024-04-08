@@ -18,4 +18,13 @@ class BasePipeline:
             base_model.update_base_model()
         except Exception as e:
             raise CustomException(e,sys)
-    
+
+if __name__ == '__main__':
+    try:
+        
+        logging.info("staring pareaed base model")
+        base_obj = BasePipeline()
+        base_obj.main()
+        logging.info("base modle is completed")
+    except Exception as e:
+        raise CustomException(e,sys)

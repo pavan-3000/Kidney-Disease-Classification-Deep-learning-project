@@ -3,11 +3,10 @@
 from src.project.logger import logging 
 from src.project.exception import CustomException
 import sys
-
+from src.project.pipeline.ingestion_pipeline import DataIngestionPipeline
 from src.project.pipeline.preprared_base_model_pipeline import BasePipeline
 from src.project.pipeline.trainpipeline import TrainingPipeline
 from src.project.pipeline.evalute_pipeline import EvaluePipeline
-'''
 try:
     logging.info("datas ingestonston stared")
     obj = DataIngestionPipeline()
@@ -38,7 +37,6 @@ except Exception as e:
 
 
 
-'''
 
 try:
     eval_obj  = EvaluePipeline()
